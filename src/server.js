@@ -4,18 +4,6 @@ var hapi = require('hapi');
 var config = require(__dirname + '/config.json');
 var routes = require(__dirname + '/app/routes');
 
-/*
-var exec = require('child_process').exec;
-var child;
-  var exec = exec('echo "oui"',
-    function (err, stdout, stderr) {
-      if (err !== null) {
-        console.log('exec error: ' + err);
-      }
-      console.log(stdout);
-  });
-*/
-
 var server = new hapi.Server();
 
 server.connection({
