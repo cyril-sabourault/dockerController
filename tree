@@ -1,0 +1,36 @@
+.
+├── src
+│   ├── app
+│   │   ├── controllers
+│   │   ├── partials
+│   │   ├── routes
+│   │   │   ├── index.js
+│   │   │   └── staticRoutes.js
+│   │   └── templates
+│   │       ├── images
+│   │       │   ├── android-desktop.png
+│   │       │   ├── dog.png
+│   │       │   ├── favicon.png
+│   │       │   ├── ios-desktop.png
+│   │       │   └── user.jpg
+│   │       ├── index.html
+│   │       ├── material.min.css
+│   │       └── styles.css
+│   ├── public
+│   │   ├── images
+│   │   │   ├── android-desktop.png
+│   │   │   ├── container.jpg
+│   │   │   ├── container.png
+│   │   │   ├── favicon-16x16.png
+│   │   │   ├── favicon.png
+│   │   │   ├── ios-desktop.png
+│   │   │   └── user.jpg
+│   │   ├── index.html
+│   │   ├── material.min.css
+│   │   └── styles.css
+│   ├── config.json
+│   └── server.js
+├── .gitignore
+├── LICENSE
+├── package.json
+└── README.md
