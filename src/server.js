@@ -5,14 +5,13 @@ var config = require('./config.json');
 var routes = require('./app/routes');
 var staticRoutes = require('./app/routes/staticRoutes.js');
 
-
 var server = new hapi.Server();
 
 server.connection({
   port   : config.node.port,
   routes : {
     files : {
-      relativeTo  : path.join(__dirname, 'public')
+      relativeTo  : path.join(__dirname, '/public/dist')
     }
   }
 });
