@@ -1,7 +1,7 @@
 {
   "name": "dockerController",
   "version": "0.0.1",
-  "description": "",
+  "description": "Web interface for Docker",
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,17 @@
   "author": "csabourault",
   "license": "ISC",
   "dependencies": {
-    "hapi": "^11.0.2",
+    "hapi": "11.0.2",
+    "inert": "^3.2.0",
     "underscore": "^1.8.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Limezest/dockerController.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Limezest/dockerController/issues"
+  },
+  "homepage": "https://github.com/Limezest/dockerController"
 }

@@ -1,31 +1,40 @@
-console.log(__filename);
-
 var hapi = require('hapi');
-var config = require(__dirname + '/config.json');
-var routes = require(__dirname + '/app/routes');
+var path = require('path');
+
+var config = require('./config.json');
+var routes = require('./app/routes');
+var staticRoutes = require('./app/routes/staticRoutes.js');
+
 
 var server = new hapi.Server();
 
 server.connection({
   port   : config.node.port,
   routes : {
-    cors : {
-      origin : ['*']
+    files : {
+      relativeTo  : path.join(__dirname, 'public')
     }
   }
 });
 
-server.route(routes);
-
-server.route({
-  method  : 'GET',
-  path    : '/',
-  config  : {
-    handler : function(req, res) {
-      console.log('/');
-      return res('').code(200);
-    }
+var plugins = [
+  {
+    Inert  : require('inert')
   }
+];
+
+server.register(require('inert'), function() {});
+  
+server.route({
+    method: 'GET',
+    path: '/{param*}',
+    handler: {
+        directory: {
+            path  : '.',
+            redirectToSlash : true,
+            index : true
+        }
+    }
 });
 
 server.start(function() {

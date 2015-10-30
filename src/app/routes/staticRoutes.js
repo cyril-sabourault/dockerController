@@ -1,17 +1,11 @@
-console.log(__filename);
+var Path = require('path');
 
-module.exports = [
-	{
-		method	: 'GET',
-		path	: '/public/{path*}',
-		config	: {
-			handler	: {
-				directory	: {
-					path	: 'public',
-					listing	: false,
-					index	: true
-				}
-			}
+module.exports = [{
+	method	: 'GET',
+	path	: '/public/{path*}',
+	config	: {
+		handler	: function (req, res){
+			res.view(__dirname + '/../public/' + req.params.path);
 		}
 	}
-];
+}];
