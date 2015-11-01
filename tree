@@ -1,9 +1,14 @@
+tree -aCI 'node_modules|.git|components|dist' --dirsfirst
 .
 ├── src
 │   ├── app
 │   │   ├── controllers
+│   │   │   ├── containersCtrl.js
+│   │   │   └── imagesCtrl.js
 │   │   ├── partials
 │   │   ├── routes
+│   │   │   ├── containers.js
+│   │   │   ├── images.js
 │   │   │   ├── index.js
 │   │   │   └── staticRoutes.js
 │   │   └── templates
@@ -17,20 +22,37 @@
 │   │       ├── material.min.css
 │   │       └── styles.css
 │   ├── public
-│   │   ├── images
-│   │   │   ├── android-desktop.png
-│   │   │   ├── container.jpg
-│   │   │   ├── container.png
-│   │   │   ├── favicon-16x16.png
-│   │   │   ├── favicon.png
-│   │   │   ├── ios-desktop.png
-│   │   │   └── user.jpg
-│   │   ├── index.html
-│   │   ├── material.min.css
-│   │   └── styles.css
+│   │   ├── src
+│   │   │   ├── img
+│   │   │   │   └── avatar.jpg
+│   │   │   ├── js
+│   │   │   │   ├── controllers
+│   │   │   │   │   ├── alert-ctrl.js
+│   │   │   │   │   ├── containersCtrl.js
+│   │   │   │   │   ├── imagesCtrl.js
+│   │   │   │   │   └── master-ctrl.js
+│   │   │   │   ├── directives
+│   │   │   │   │   ├── loading.js
+│   │   │   │   │   ├── widget-body.js
+│   │   │   │   │   ├── widget-footer.js
+│   │   │   │   │   ├── widget-header.js
+│   │   │   │   │   └── widget.js
+│   │   │   │   ├── module.js
+│   │   │   │   └── routes.js
+│   │   │   ├── templates
+│   │   │   │   ├── dashboard.html
+│   │   │   │   ├── details.html
+│   │   │   │   ├── list.html
+│   │   │   │   └── trash.html
+│   │   │   └── index.html
+│   │   ├── bower.json
+│   │   ├── gulpfile.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
 │   ├── config.json
 │   └── server.js
 ├── .gitignore
 ├── LICENSE
 ├── package.json
-└── README.md
+├── README.md
