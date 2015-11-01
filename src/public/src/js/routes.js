@@ -19,6 +19,10 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/list',
                 templateUrl: 'templates/list.html'
             })
+            .state('details', {
+                url: '/details',
+                templateUrl: 'templates/details.html'
+            })
             .state('trash', {
                 url: '/trash',
                 templateUrl: 'templates/trash.html'

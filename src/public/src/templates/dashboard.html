@@ -4,114 +4,103 @@
   </div>
 </div>
 
-<div class="row">
-	<div class="col-lg-4 col-md-6 col-xs-12">
-		<rd-widget>
-			<rd-widget-body>
-				<div class="widget-icon red pull-left">
-					<i class="fa fa-tasks"></i>
-				</div>
-				<div class="title">2</div>
-				<div class="comment">Containers </div>
-			</rd-widget-body>
-		</rd-widget>
-	</div>
-	<div class="col-lg-4 col-md-6 col-xs-12">
-		<rd-widget>
-			<rd-widget-body>
-				<div class="widget-icon green pull-left">
-					<i class="fa fa-picture-o"></i>
-				</div>
-				<div class="title">3</div>
-				<div class="comment">Images</div>
-			</rd-widget-body>
-		</rd-widget>
-	</div>
-	<div class="col-lg-4 col-md-6 col-xs-12">
-		<rd-widget>
-			<rd-widget-body>
-				<div class="widget-icon orange pull-left">
-					<i class="fa fa-sitemap"></i>
-				</div>
-				<div class="title">0</div>
-				<div class="comment">Network</div>
-			</rd-widget-body>
-		</rd-widget>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-lg-9">
-		<rd-widget>
-      		<rd-widget-header icon="fa-tasks" title="docker ps">
-				<input type="text" placeholder="Search" class="form-control input-sm" />
-      		</rd-widget-header>
-      		<rd-widget-body classes="no-padding">
-				<div class="table-responsive">
-					<table class="table">
-						<thead>
-			              <tr> <th class="text-center">ID</th><th>name</th><th>command</th><th>port</th><th>image</th> </tr>
-			            </thead>
-			            <tbody>
-			              <tr> <td  class="text-center">51b</td><td>dev-api</td><td>supervisord -c supervisord.conf</td><td>:443->8080/tcp</td><td>dev-api:latest</td> </tr>
-			              <tr> <td  class="text-center">527</td><td>dev-front</td><td>npm start</td><td>:80->8080/tcp</td><td>dev-front:latest</td> </tr> 
-						</tbody>
-					</table>
-				</div>
-			</rd-widget-body>
-		</rd-widget>
-	</div>
-	<div class="col-lg-3">
-		<rd-widget>
-			<rd-widget-header icon="fa-image" title="Images">
-				<input type="text" placeholder="Search" class="form-control input-sm" />
-			</rd-widget-header>
-			<rd-widget-body classes="no-padding">
-				<div class="table-responsive">
-					<table class="table">
-						<thead>
-							<tr><th>Repo</th><th>Size</th></tr>
-						</thead>
-						<tbody>
-							<tr><td>dev-front</td><td>521.5 MB</td></tr>
-							<tr><td>dev-api</td><td>542.4 MB</td></tr>
-							<tr><td>google/debian</td><td>88.23 MB</td></tr>
-						</tbody>
-					</table>
-        		</div>
-			</rd-widget-body>
-		<rd-widget>
-	</div>
-</div>
-
-<div class="row">
-<!--	
-	<div class="col-lg-6">
-   		<rd-widget>
-   			<rd-widget-header icon="fa-plus" title="Extras">
-   				<button class="btn btn-sm btn-info">Button</button>
-   			</rd-widget-header>
-   			<rd-widget-body>
-				<div class="message">
-					This is a standard message which will also work the ".no-padding" class, I can also <span class="error">be an error message!</span>
-				</div>
-				<hr />
-				<div class="message">
-					<a href="http://angular-ui.github.io/bootstrap/" target="_blank">UI Bootstrap</a> is included, so you can use <a href="#" tooltip="I'm a tooltip!">tooltips</a> and all of the other native Bootstrap JS components!
-				</div>
-   			</rd-widget-body>
-   		</rd-widget>
-	</div>
--->
-	<div class="col-lg-12">
-		<rd-widget>
-			<rd-widget-header icon="fa-cog fa-spin" title="Loading Directive">
-				<a href="http://tobiasahlin.com/spinkit/" target="_blank" style="float:right;">http://tobiasahlin.com/spinkit/</a>
-			</rd-widget-header>
-			<rd-widget-body>
-				<rd-loading></rd-loading>
-			</rd-widget-body>
-		</rd-widget>
+<div data-ng-controller="ContainersCtrl">
+<div data-ng-controller="ImagesCtrl">
+		
+	<div class="row">
+		<div class="col-lg-4 col-md-6 col-xs-12">
+			<rd-widget>
+				<rd-widget-body>
+					<div class="widget-icon red pull-left">
+						<i class="fa fa-tasks"></i>
+					</div>
+					<div class="title">{{ containers.length }}</div>
+					<div class="comment">Containers </div>
+				</rd-widget-body>
+			</rd-widget>
+		</div>
+		<div class="col-lg-4 col-md-6 col-xs-12">
+			<rd-widget>
+				<rd-widget-body>
+					<div class="widget-icon green pull-left">
+						<i class="fa fa-picture-o"></i>
+					</div>
+					<div class="title">{{ images.length }}</div>
+					<div class="comment">Images</div>
+				</rd-widget-body>
+			</rd-widget>
+		</div>
+		<div class="col-lg-4 col-md-6 col-xs-12">
+			<rd-widget>
+				<rd-widget-body>
+					<div class="widget-icon orange pull-left">
+						<i class="fa fa-sitemap"></i>
+					</div>
+					<div class="title">0</div>
+					<div class="comment">Network</div>
+				</rd-widget-body>
+			</rd-widget>
+		</div>
 	</div>
 	
+	<div class="row">
+		<div class="col-lg-9">
+			<rd-widget>
+	      		<rd-widget-header icon="fa-tasks" title="docker ps">
+					<!--<input type="text" placeholder="Search" ng-model="query" class="form-control input-sm" />-->
+	      		</rd-widget-header>
+	      		<rd-widget-body classes="no-padding">
+					<input type="text" placeholder="Search" ng-model="search.$" class="form-control input-sm" />
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+				              <tr> <th class="text-center">ID</th><th>name</th><th>command</th><th>port</th><th>image</th> </tr>
+				            </thead>
+				            <tbody>
+								<tr ng-repeat="container in containers | filter:search">
+				                  <td class="text-center">{{ container.id }}</td><td>{{ container.name }}</td><td>{{ container.command }}</td><td>{{ container.port.split(':')[1] }}</td><td>{{ container.image }}</td>
+				                </tr>
+							</tbody>
+						</table>
+					</div>
+				</rd-widget-body>
+			</rd-widget>
+		</div>
+		<div class="col-lg-3">
+			<rd-widget>
+				<rd-widget-header icon="fa-image" title="Images">
+				</rd-widget-header>
+				<rd-widget-body classes="no-padding">
+					<input type="text" placeholder="Search" ng-model="search.$" class="form-control input-sm" />
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr><th>Repo</th><th>Size</th></tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="image in images | filter:search">
+				                  <td>{{ image.repo }}</td><td>{{ image.size }}</td>
+				                </tr>
+							</tbody>
+						</table>
+	        		</div>
+				</rd-widget-body>
+			<rd-widget>
+		</div>
+	</div>
+	
+	<div class="row">
+		
+		<div class="col-lg-12">
+			<rd-widget>
+				<rd-widget-header icon="fa-cog fa-spin" title="Loading Directive">
+					<a href="http://tobiasahlin.com/spinkit/" target="_blank" style="float:right;">http://tobiasahlin.com/spinkit/</a>
+				</rd-widget-header>
+				<rd-widget-body>
+					<rd-loading></rd-loading>
+				</rd-widget-body>
+			</rd-widget>
+		</div>
+		
+	</div>
 </div>

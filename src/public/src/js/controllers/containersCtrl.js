@@ -1,7 +1,6 @@
-/*
+/**
  *  Containers
  */
-
 
 angular
     .module('RDash')
@@ -12,7 +11,7 @@ function ContainersCtrl($scope) {
         {
             id: "51b",
             image: "dev-front:latest",
-            command: "supervisord -c supervisord.conf",
+            command: "npm start",
             created: "27 hours ago",
             status: "Up 27 hours",
             port: "0.0.0.0:80->8080/tcp",
@@ -28,19 +27,9 @@ function ContainersCtrl($scope) {
             name: "dev-api"
         }
     ];
-
-    $scope.addAlert = function() {
-        $scope.alerts.push({
-            msg: 'Another alert!'
-        });
-    };
-
-    $scope.closeAlert = function(index) {
-        $scope.alerts.splice(index, 1);
-    };
 }
 
 /*
-    $http.get("localhost")
+    $http.get("localhost/containers/all")
     .success(function (response) {$scope.containers = response.records;});
 */
