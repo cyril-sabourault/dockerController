@@ -1,26 +1,23 @@
 tree -aCI 'node_modules|.git|components|dist' --dirsfirst
 .
+├── logs
+│   ├── gulp
+│   │   ├── err.log
+│   │   └── out.log
+│   └── node
+│       ├── err.log
+│       └── out.log
 ├── src
 │   ├── app
 │   │   ├── controllers
 │   │   │   ├── containersCtrl.js
 │   │   │   └── imagesCtrl.js
 │   │   ├── partials
-│   │   ├── routes
-│   │   │   ├── containers.js
-│   │   │   ├── images.js
-│   │   │   ├── index.js
-│   │   │   └── staticRoutes.js
-│   │   └── templates
-│   │       ├── images
-│   │       │   ├── android-desktop.png
-│   │       │   ├── dog.png
-│   │       │   ├── favicon.png
-│   │       │   ├── ios-desktop.png
-│   │       │   └── user.jpg
-│   │       ├── index.html
-│   │       ├── material.min.css
-│   │       └── styles.css
+│   │   └── routes
+│   │       ├── containers.js
+│   │       ├── images.js
+│   │       ├── index.js
+│   │       └── staticRoutes.js
 │   ├── public
 │   │   ├── src
 │   │   │   ├── img
@@ -54,5 +51,8 @@ tree -aCI 'node_modules|.git|components|dist' --dirsfirst
 │   └── server.js
 ├── .gitignore
 ├── LICENSE
+├── npm-debug.log
 ├── package.json
 ├── README.md
+├── supervisord.conf
+└── tree
