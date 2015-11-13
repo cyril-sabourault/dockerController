@@ -1,11 +1,15 @@
 var Path = require('path');
 
-module.exports = [{
-	method	: 'GET',
-	path	: '/public/{path*}',
-	config	: {
-		handler	: function (req, res){
-			res.view(__dirname + '/../public/' + req.params.path);
-		}
-	}
-}];
+module.exports = [
+    {
+        method: 'GET',
+        path: '/{param*}',
+        handler: {
+            directory: {
+                path  : '.',
+                redirectToSlash : true,
+                index : true
+            }
+        }
+    }
+];
