@@ -12,12 +12,13 @@ function AlertsCtrl($scope) {
         msg: 'type: success'
     }, {
         type: 'danger',
-        msg: 'type: warning'
+        msg: 'type: danger'
     }];
 
-    $scope.addAlert = function() {
+    $scope.addAlert = function(type, msg) {
         $scope.alerts.push({
-            msg: 'Another alert!'
+            type: type,
+            msg: msg
         });
     };
 

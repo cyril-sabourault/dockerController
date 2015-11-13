@@ -4,11 +4,15 @@ module.exports = [
 	{
 	    method: 'GET',
 	    path: '/containers/all',
-	    handler: containersCtrl.getAll
+		config: {
+	    	handler: containersCtrl.getAll
+		}
 	},
 	{
 	    method: 'GET',
 	    path: '/containers/{id}',
-	    handler: containersCtrl.getById
+		config: {
+	    	handler: containersCtrl.getById
+		}
 	}
 ];

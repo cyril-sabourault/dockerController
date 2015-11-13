@@ -13,7 +13,7 @@
               </thead>
               <tbody>
                 <tr ng-repeat="container in containers">
-                  <td class="text-center">{{ container.id }}</td><td>{{ container.image }}</td><td>{{ container.command }}</td><td>{{ container.status }}</td><td>{{ container.port }}</td><td>{{ container.name }}</td>
+                  <td class="text-center">{{ container.id.substring(0,3) }}</td><td>{{ container.image }}</td><td>{{ container.command }}</td><td>{{ container.status }}</td><td>{{ container.port }}</td><td>{{ container.name }}</td>
                 </tr>
                 <!-- <tr> <td class="text-center">cab</td><td>dev-api:latest</td><td>supervisord -c supervisord.conf</td><td><span class="text-success"><i class="fa fa-check"></i> Up 15 hours</span></td><td>:443->8080/tcp</td><td>dev-api</td> </tr> <tr> <td class="text-center">fc5</td><td>dev-front:latest</td><td>npm start</td><td> <span class="text-danger" tooltip="Container stopped"><i class="fa fa-warning"></i> Exited (1) 19 seconds ago</span></td><td>:80->8080/tcp</td><td>dev-front</td> </tr> -->  
               </tbody>

@@ -1,12 +1,13 @@
-<div class="row alerts-container" data-ng-controller="AlertsCtrl" data-ng-show="alerts.length">
-  <div class="col-xs-12">
-    <alert data-ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-  </div>
-</div>
+<span data-ng-controller="ContainersCtrl">
+<span data-ng-controller="ImagesCtrl">
 
-<div data-ng-controller="ContainersCtrl">
-<div data-ng-controller="ImagesCtrl">
-		
+	<div class="row alerts-container" data-ng-controller="AlertsCtrl" data-ng-show="alerts.length">
+	  <div class="col-xs-12">
+	    <alert data-ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+	  </div>
+	  <!--<button ng-click="addAlert('success', 'oui')"/>-->
+	</div>
+
 	<div class="row">
 		<div class="col-lg-4 col-md-6 col-xs-12">
 			<rd-widget>
@@ -15,7 +16,7 @@
 						<i class="fa fa-tasks"></i>
 					</div>
 					<div class="title">{{ containers.length }}</div>
-					<div class="comment">Containers </div>
+					<div class="comment">Container<span data-ng-show="(containers.length != 0 && containers.length != 1)">s</span> </div>
 				</rd-widget-body>
 			</rd-widget>
 		</div>
@@ -26,7 +27,7 @@
 						<i class="fa fa-picture-o"></i>
 					</div>
 					<div class="title">{{ images.length }}</div>
-					<div class="comment">Images</div>
+					<div class="comment">Image<span data-ng-show="(images.length != 0 && images.length != 1)">s</span></div>
 				</rd-widget-body>
 			</rd-widget>
 		</div>
@@ -44,7 +45,7 @@
 	</div>
 	
 	<div class="row">
-		<div class="col-lg-9">
+		<div class="col-lg-9" data-ng-show="containers.length">
 			<rd-widget>
 	      		<rd-widget-header icon="fa-tasks" title="docker ps">
 					<!--<input type="text" placeholder="Search" ng-model="query" class="form-control input-sm" />-->
@@ -58,7 +59,7 @@
 				            </thead>
 				            <tbody>
 								<tr ng-repeat="container in containers | filter:search">
-				                  <td class="text-center">{{ container.id }}</td><td>{{ container.name }}</td><td>{{ container.command }}</td><td>{{ container.port.split(':')[1] }}</td><td>{{ container.image }}</td>
+				                  <td class="text-center">{{ container.id.substring(0,3) }}</td><td>{{ container.name }}</td><td>{{ container.command }}</td><td>{{ container.port.split(':')[1] }}</td><td>{{ container.image }}</td>
 				                </tr>
 							</tbody>
 						</table>
@@ -66,7 +67,7 @@
 				</rd-widget-body>
 			</rd-widget>
 		</div>
-		<div class="col-lg-3">
+		<div class="col-lg-3" data-ng-show="images.length">
 			<rd-widget>
 				<rd-widget-header icon="fa-image" title="Images">
 				</rd-widget-header>
@@ -103,4 +104,5 @@
 		</div>
 		
 	</div>
-</div>
+</span>
+</span>

@@ -27,5 +27,4 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/trash',
                 templateUrl: 'templates/trash.html'
             });
-    }
-]);
+    }]);

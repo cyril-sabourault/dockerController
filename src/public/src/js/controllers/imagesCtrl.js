@@ -1,31 +1,27 @@
-/**
- *  Containers
- */
+!function() {
+    /*global angular*/
+    'use strict';
 
-angular
-    .module('RDash')
-    .controller('ImagesCtrl', ['$scope', ImagesCtrl]);
+    /*
+     *  Images
+     */
 
-function ImagesCtrl($scope) {
-    $scope.images = [
-        {
-            repo: "pre-front",
-            tag: "latest",
-            imageID: "ef8",
-            created: "27 hours ago",
-            size: "521.3 MB"
-        },
-        {
-            repo: "pre-api",
-            tag: "latest",
-            imageID: "d7c",
-            created: "27 hours ago",
-            size: "542.2 MB"
-        }
-    ];
-}
+    function ImagesCtrl($scope, $http) {
+        $scope.images = [];
+        
+        $http.get("http://localhost:8080/images/all")
+            .success(function(res) {
+                $scope.images = res;
+            })
+            .error(function() {
+                console.log('failure');
+            });
+    }
 
-/*
-    $http.get("localhost/images/all")
-    .success(function (response) {$scope.images = response.records;});
-*/
+    ImagesCtrl.$inject = ['$scope', '$http'];
+
+    angular
+        .module('RDash')
+        .controller('ImagesCtrl', ['$scope', '$http', ImagesCtrl]);
+    
+}();

@@ -1,35 +1,27 @@
-/**
- *  Containers
- */
+!function() {
+    /*global angular*/
+    'use strict';
+    
+    /*
+     *  Containers
+     */
+    
+    function ContainersCtrl($scope, $http) {
+        $scope.containers = [];
+        
+        $http.get("http://localhost:8080/containers/all")
+            .success(function(res) {
+                $scope.containers = res;
+            })
+            .error(function() {
+                console.log('failure');
+            });
+    }
 
-angular
-    .module('RDash')
-    .controller('ContainersCtrl', ['$scope', ContainersCtrl]);
+    ContainersCtrl.$inject = ['$scope', '$http'];
+    
+    angular
+        .module('RDash')
+        .controller('ContainersCtrl', ['$scope', '$http', ContainersCtrl]);
 
-function ContainersCtrl($scope) {
-    $scope.containers = [
-        {
-            id: "51b",
-            image: "dev-front:latest",
-            command: "npm start",
-            created: "27 hours ago",
-            status: "Up 27 hours",
-            port: "0.0.0.0:80->8080/tcp",
-            name: "dev-front"
-        },
-        {
-            id: "527",
-            image: "dev-api:latest",
-            command: "supervisord -c supervisord.conf",
-            created: "27 hours ago",
-            status: "Up 27 hours",
-            port: "0.0.0.0:443->8080/tcp",
-            name: "dev-api"
-        }
-    ];
-}
-
-/*
-    $http.get("localhost/containers/all")
-    .success(function (response) {$scope.containers = response.records;});
-*/
+}();

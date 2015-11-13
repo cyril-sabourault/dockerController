@@ -4,11 +4,15 @@ module.exports = [
 	{
 	    method: 'GET',
 	    path: '/images/all',
-	    handler: imagesCtrl.getAll
+		config: {
+	    	handler: imagesCtrl.getAll
+		}
 	},
 	{
 	    method: 'GET',
 	    path: '/images/{id}',
-	    handler: imagesCtrl.getById
+		config: {
+	    	handler: imagesCtrl.getById
+		}
 	}
 ];
