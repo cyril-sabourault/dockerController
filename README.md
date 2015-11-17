@@ -18,4 +18,4 @@
 <br/>
 #### *Want to make it accessible from the interwebs ? Use [ngrok](https://ngrok.com/) once the server is started !*
 
-    ngrok http 8080
+    $ ngrok http 8080  //  (or whatever port you used)
