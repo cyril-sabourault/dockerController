@@ -9,7 +9,7 @@
     function ImagesCtrl($scope, $http) {
         $scope.images = [];
         
-        $http.get("http://localhost:8080/images/all")
+        $http.get("/images/all")
             .success(function(res) {
                 $scope.images = res;
             })

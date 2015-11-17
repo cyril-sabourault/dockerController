@@ -9,7 +9,7 @@
     function ContainersCtrl($scope, $http) {
         $scope.containers = [];
         
-        $http.get("http://localhost:8080/containers/all")
+        $http.get("/containers/all")
             .success(function(res) {
                 $scope.containers = res;
             })

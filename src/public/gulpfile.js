@@ -19,6 +19,8 @@ var paths = {
     bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg}',
 };
 
+var config = require('../config.json').gulp;
+
 /**
  * Handle bower components from index
  */
@@ -91,7 +93,7 @@ gulp.task('webserver', function() {
     connect.server({
         root: 'dist',
         livereload: true,
-        port: 8888
+        port: config.port
     });
 });
 
