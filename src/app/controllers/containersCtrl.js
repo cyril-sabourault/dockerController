@@ -1,57 +1,73 @@
-function containersCtrl(){};
+var docker = require('../helpers/docker');
+var container = require('../helpers/containerHelper');
 
-containersCtrl.prototype = (function() {
+function ContainersCtrl(){};
+
+ContainersCtrl.prototype = (function() {
 	return {
 		getAll: function (req, res) {
 			console.log('Containers/getAll');
-			var containers = [
-		        {
-		            id: "azertyuiolp",
-		            image: "dev-front:latest",
-		            command: "npm start",
-		            created: "27 hours ago",
-		            status: "Up 27 hours",
-		            port: "0.0.0.0:80->8080/tcp",
-		            name: "dev-front"
-		        },
-		        {
-		            id: "51b",
-		            image: "dev-front:latest",
-		            command: "npm start",
-		            created: "27 hours ago",
-		            status: "Up 27 hours",
-		            port: "0.0.0.0:80->8080/tcp",
-		            name: "dev-front"
-		        },
-		        {
-		            id: "51b",
-		            image: "dev-front:latest",
-		            command: "npm start",
-		            created: "27 hours ago",
-		            status: "Up 27 hours",
-		            port: "0.0.0.0:80->8080/tcp",
-		            name: "dev-front"
-		        },
-		        {
-		            id: "51b",
-		            image: "dev-front:latest",
-		            command: "npm start",
-		            created: "27 hours ago",
-		            status: "Up 27 hours",
-		            port: "0.0.0.0:80->8080/tcp",
-		            name: "dev-front"
-		        },
-		        {
-		            id: "pivfb",
-		            image: "dev-api:latest",
-		            command: "supervisord -c supervisord.conf",
-		            created: "27 hours ago",
-		            status: "Up 27 hours",
-		            port: "0.0.0.0:443->8080/tcp",
-		            name: "dev-api"
-		        }
-			];
-			return res(containers);
+			// var containers = [
+		    //     {
+		    //         id: "azertyuiolp",
+		    //         image: "dev-front:latest",
+		    //         command: "npm start",
+		    //         created: "27 hours ago",
+		    //         status: "Up 27 hours",
+		    //         port: "0.0.0.0:80->8080/tcp",
+		    //         name: "dev-front"
+		    //     },
+		    //     {
+		    //         id: "51b",
+		    //         image: "dev-front:latest",
+		    //         command: "npm start",
+		    //         created: "27 hours ago",
+		    //         status: "Up 27 hours",
+		    //         port: "0.0.0.0:80->8080/tcp",
+		    //         name: "dev-front"
+		    //     },
+		    //     {
+		    //         id: "51b",
+		    //         image: "dev-front:latest",
+		    //         command: "npm start",
+		    //         created: "27 hours ago",
+		    //         status: "Up 27 hours",
+		    //         port: "0.0.0.0:80->8080/tcp",
+		    //         name: "dev-front"
+		    //     },
+		    //     {
+		    //         id: "51b",
+		    //         image: "dev-front:latest",
+		    //         command: "npm start",
+		    //         created: "27 hours ago",
+		    //         status: "Up 27 hours",
+		    //         port: "0.0.0.0:80->8080/tcp",
+		    //         name: "dev-front"
+		    //     },
+		    //     {
+		    //         id: "pivfb",
+		    //         image: "dev-api:latest",
+		    //         command: "supervisord -c supervisord.conf",
+		    //         created: "27 hours ago",
+		    //         status: "Up 27 hours",
+		    //         port: "0.0.0.0:443->8080/tcp",
+		    //         name: "dev-api"
+		    //     }
+			// ];
+			// return res(containers);
+
+			docker.ps(null, function(ps) {
+				if (!ps)
+					return [];
+					
+				container.toJSON(ps, function(containers) {
+					if (!containers)
+						return [];
+					
+					return res(containers);
+				});
+			});
+			
 		},
 		getById: function (req, res){
 			console.log('containers/getById');
@@ -63,5 +79,5 @@ containersCtrl.prototype = (function() {
 	};
 })();
 
-var containersCtrl = new containersCtrl();
+var containersCtrl = new ContainersCtrl();
 module.exports = containersCtrl;
