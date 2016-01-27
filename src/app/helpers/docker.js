@@ -33,6 +33,20 @@ DockerHelper.prototype = (function() {
 				res = output?output:0;
 				callback(res);
 			});
+		},
+		info	: function(err, callback) {
+			var	output;
+
+			exec('docker info', function (err, stdout, stderr) {
+				if (err) {
+					return 0;
+				}
+
+				output = stdout.split('\n');
+				output.pop();
+				
+				callback(output);
+			});
 		}
 	}
 })();
