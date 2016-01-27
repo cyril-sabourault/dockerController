@@ -54,7 +54,7 @@ ContainersCtrl.prototype = (function() {
 		    //     }
 			// ];
 			// return res(containers);
-
+			
 			docker.ps(null, function(ps) {
 				if (!ps)
 					return [];
@@ -62,8 +62,8 @@ ContainersCtrl.prototype = (function() {
 				container.toJSON(ps, function(containers) {
 					if (!containers)
 						return [];
-					
 					return res(containers);
+					// setTimeout(function() { return res(containers); }, 700);
 				});
 			});
 			

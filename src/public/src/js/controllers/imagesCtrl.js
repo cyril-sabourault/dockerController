@@ -8,13 +8,17 @@
 
     function ImagesCtrl($scope, $http) {
         $scope.images = [];
-        
+        $scope.imagesLoading = true;
+
         $http.get("/images/all")
             .success(function(res) {
                 $scope.images = res;
             })
             .error(function() {
                 console.log('failure');
+            })
+            .finally(function() {
+                $scope.imagesLoading = false;
             });
     }
 

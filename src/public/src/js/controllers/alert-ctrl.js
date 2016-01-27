@@ -4,9 +4,9 @@
 
 angular
     .module('RDash')
-    .controller('AlertsCtrl', ['$scope', AlertsCtrl]);
+    .controller('alertsCtrl', ['$scope', alertsCtrl]);
 
-function AlertsCtrl($scope) {
+function alertsCtrl($scope) {
     $scope.alerts = [{
         type: 'success',
         msg: 'type: success'

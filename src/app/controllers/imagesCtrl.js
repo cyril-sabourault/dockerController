@@ -31,8 +31,8 @@ ImagesCtrl.prototype = (function() {
 				image.toJSON(images, function(images) {
 					if (!images)
 						return [];
-
 					return res(images);
+					// setTimeout(function() { return res(images); }, 1000);
 				});
 			});
 		},

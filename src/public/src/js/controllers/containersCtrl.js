@@ -8,13 +8,17 @@
     
     function ContainersCtrl($scope, $http) {
         $scope.containers = [];
-        
+        $scope.containersLoading = true;
+
         $http.get("/containers/all")
             .success(function(res) {
                 $scope.containers = res;
             })
             .error(function() {
                 console.log('failure');
+            })
+            .finally(function() {
+                $scope.containersLoading = false;
             });
     }
 
