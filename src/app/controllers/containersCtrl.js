@@ -6,7 +6,6 @@ function ContainersCtrl(){};
 ContainersCtrl.prototype = (function() {
 	return {
 		getAll: function (req, res) {
-			console.log('Containers/getAll');
 			// var containers = [
 		    //     {
 		    //         id: "azertyuiolp",

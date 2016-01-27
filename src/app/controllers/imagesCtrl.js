@@ -3,7 +3,6 @@ function imagesCtrl(){};
 imagesCtrl.prototype = (function() {
 	return {
 		getAll: function (req, res) {
-			console.log('images/getAll');
 			var images = [
 	            {
 	                repo: "pre-front",
