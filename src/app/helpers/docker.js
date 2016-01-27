@@ -19,7 +19,21 @@ DockerHelper.prototype = (function() {
 				callback(res);
 			});
 		},
-		images	: function() {}
+		images	: function(err, callback) {
+			var output;
+			var res;
+
+			exec('docker images', function (err, stdout, stderr) {
+				if (err) {
+					return 0;
+				}
+				output = stdout.split('\n');
+				output.shift(); output.pop();
+				
+				res = output?output:0;
+				callback(res);
+			});
+		}
 	}
 })();
 
