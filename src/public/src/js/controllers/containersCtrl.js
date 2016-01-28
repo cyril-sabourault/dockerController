@@ -19,6 +19,31 @@
             })
             .finally(function() {
                 $scope.containersLoading = false;
+
+                // $scope.filteredContainers = [];
+                // $scope.currentPage = 1;
+                // $scope.numPerPage = 2;
+                // $scope.maxSize = 5;
+                // $scope.totalItems = $scope.containers.length;
+
+                // $scope.pageChanged = function(z) {
+                //     console.log('pagechanged'+z);
+                // };
+                // $scope.selectPage = function(z) {
+                //     console.log('selectPage'+z);
+                // };
+                // $scope.setPage = function(z) {
+                //     console.log('setPage'+z);
+                //     $scope.currentPage = z;
+                // };
+
+                // $scope.$watch('currentPage + numPerPage', function() {
+                //     var begin = (($scope.currentPage - 1) * $scope.numPerPage);
+                //     var end = begin + $scope.numPerPage;
+                //     $scope.totalItems  = $scope.containers.length;
+
+                //     $scope.filteredContainers = $scope.containers.slice(begin, end);
+                // });
             });
     }
 

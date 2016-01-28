@@ -2,11 +2,7 @@
  * Alerts Controller
  */
 
-angular
-    .module('RDash')
-    .controller('alertsCtrl', ['$scope', alertsCtrl]);
-
-function alertsCtrl($scope) {
+function AlertsCtrl($scope) {
     $scope.alerts = [{
         type: 'success',
         msg: 'type: success'
@@ -26,3 +22,7 @@ function alertsCtrl($scope) {
         $scope.alerts.splice(index, 1);
     };
 }
+
+angular
+    .module('RDash')
+    .controller('AlertsCtrl', ['$scope', AlertsCtrl]);

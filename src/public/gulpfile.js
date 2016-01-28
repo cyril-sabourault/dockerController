@@ -1,3 +1,4 @@
+require('es6-promise').polyfill();
 var gulp = require('gulp'),
     usemin = require('gulp-usemin'),
     wrap = require('gulp-wrap'),

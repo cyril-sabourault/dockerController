@@ -12,6 +12,7 @@
                 <tr> <th class="text-center">ID</th><th>image</th><th>command</th><th>status</th><th>port</th><th>name</th> </tr>
               </thead>
               <tbody>
+                <!--<tr ng-repeat="container in filteredContainers">-->
                 <tr ng-repeat="container in containers">
                   <td class="text-center">{{ container.id.substring(0,3) }}</td><td>{{ container.image }}</td><td>{{ container.command }}</td><td>{{ container.status }}</td><td>{{ container.port }}</td><td>{{ container.name }}</td>
                 </tr>
@@ -21,7 +22,7 @@
           </div>      
         </rd-widget-body>
         <rd-widget-footer>
-          <ul class="pagination pagination-sm pull-right">
+          <!--<ul class="pagination pagination-sm pull-right">
             <li><a href="#">&laquo;</a></li>
             <li><a href="#">1</a></li>
             <li><a href="#">2</a></li>
@@ -30,7 +31,39 @@
             <li><a href="#">5</a></li>
             <li><a href="#">&raquo;</a></li>
           </ul>
-          <div class="clearfix"></div>
+          <div class="clearfix"></div>-->
+          <!--<pagination
+            ng-model="currentPage"
+            ng-change="pageChanged()"
+            total-items="totalItems"
+            items-per-page="numPerPage"
+            max-size="maxSize"
+            
+            boundary-links="true"
+            direction-links="true">
+          </pagination>-->
+          <!--<pagination 
+            ng-model="currentPage"
+            ng-change="pageChanged(currentPage)"
+
+            total-items="totalItems" 
+            items-per-page="numPerPage"
+            max-size="maxSize"
+
+            class="pagination-sm" 
+            boundary-links="true" 
+            previous-text="&lsaquo;" 
+            next-text="&rsaquo;" 
+            first-text="&laquo;" 
+            last-text="&raquo;">
+          </pagination>
+          <button class="btn btn-info" ng-click="setPage(3)">Set current page to: 3</button>-->
+          <!--<pager 
+            ng-model="currentPage"
+            total-items="totalItems"
+            items-per-page="numPerPage"
+            max-size="maxSize">
+          </pager>-->
         </rd-widget-footer>
       </rd-widget>
     </div>
