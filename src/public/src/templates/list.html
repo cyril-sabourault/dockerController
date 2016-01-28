@@ -5,7 +5,11 @@
         <rd-widget-header icon="fa-tasks" title="docker ps">
           <a href="#" style="float:right">Manage</a>
         </rd-widget-header>
-        <rd-widget-body classes="large no-padding">
+        <rd-widget-body classes="large no-padding" ng-if="containersLoading" data-ng-hide="containers.length">
+          <rd-loading>
+          </rd-loading>
+        </rd-widget-body>
+        <rd-widget-body classes="large no-padding" ng-if="!containersLoading" data-ng-show="containers.length">
           <div class="table-responsive">
             <table class="table">
               <thead>

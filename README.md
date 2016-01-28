@@ -9,15 +9,12 @@
     //  Install the modules
         $ npm install
     
-    //  Install bower components
-        $ cd src/public && bower install; cd -
-    
     //  Create the log files
         $ touch logs/{node,gulp}/{err,out}.log
     
-    //  Compile frontend
-        $ gulp
-
+    //  Install bower components, compile frontend
+        $ cd src/public && bower install && gulp
+    
     //  Start the backend
         $ npm start
 
