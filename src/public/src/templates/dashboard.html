@@ -48,31 +48,33 @@
 		
 		<div class="col-lg-9" data-ng-show="containers.length" ng-if="!containersLoading">
 			<rd-widget>
-				<rd-widget-header icon="fa-tasks" title="docker ps">
-					<!--<input type="text" placeholder="Search" ng-model="query" class="form-control input-sm" />-->
-				</rd-widget-header>
+				<a href="#/list">
+					<rd-widget-header icon="fa-tasks" title="docker ps">
+						<!--<input type="text" placeholder="Search" ng-model="search.$" class="form-control input-sm" />-->
+					</rd-widget-header>
+				</a>
 				<rd-widget-body classes="no-padding">
 					<input type="text" placeholder="Search" ng-model="search.$" class="form-control input-sm" />
 					<div class="table-responsive">
 						<table class="table">
 							<thead>
 								<tr> 
-									<th style="text-align:center;"><i class="fa fa-info-circle"></i></th>
+									<th class="text-center"><i class="fa fa-info-circle"></i></th>
 									<th class="text-center">ID</th>
-									<th>name</th>
-									<th>command</th>
-									<th>port</th>
-									<th>image</th>
+									<th class="text-center">name</th>
+									<th class="text-center">command</th>
+									<th class="text-center">port</th>
+									<th class="text-center">image</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr ng-repeat="container in containers | filter:search">
-								<td style="text-align:center;"><i class="fa fa-play-circle-o"></i>/<i class="fa fa-exclamation-circle"></i></td>
-								<td class="text-center">{{ container.id.substring(0,3) }}</td>
-								<td>{{ container.name }}</td>
-								<td>{{ container.command }}</td>
-								<td>{{ container.port.split(':')[1] }}</td>
-								<td>{{ container.image }}</td>
+									<td class="text-center"><i class="fa fa-play-circle-o"></i>/<i class="fa fa-exclamation-circle"></i></td>
+									<td class="text-center">{{ container.id.substring(0,3) }}</td>
+									<td class="text-center">{{ container.name }}</td>
+									<td class="text-center">{{ container.command }}</td>
+									<td class="text-center">{{ container.port.split(':')[1] }}</td>
+									<td class="text-center">{{ container.image }}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -93,8 +95,10 @@
 		
 		<div class="col-lg-3" data-ng-show="images.length" ng-if="!imagesLoading">
 			<rd-widget>
-				<rd-widget-header icon="fa-image" title="Images">
-				</rd-widget-header>
+				<a href="#/images">
+					<rd-widget-header icon="fa-image" title="Images">
+					</rd-widget-header>
+				</a>
 				<rd-widget-body classes="no-padding">
 					<input type="text" placeholder="Search" ng-model="search.$" class="form-control input-sm" />
 					<div class="table-responsive">

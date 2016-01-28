@@ -1,0 +1,37 @@
+<div data-ng-controller="ImagesCtrl">
+  <div class="row">
+    <div class="col-lg-12">
+      <rd-widget>
+        <rd-widget-header icon="fa-tasks" title="docker ps">
+          <a href="#" style="float:right">Manage</a>
+        </rd-widget-header>
+        <rd-widget-body classes="large no-padding">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="text-center">ID</th>
+                  <th class="text-center">repo</th>
+                  <th class="text-center">tag</th>
+                  <th class="text-center">created</th>
+                  <th class="text-center">size</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="image in images">
+                  <td class="text-center">{{ image.imageID.substring(0,3) }}</td>
+                  <td class="text-center">{{ image.repo }}</td>
+                  <td class="text-center">{{ image.tag }}</td>
+                  <td class="text-center">{{ image.created }}</td>
+                  <td class="text-center">{{ image.size }}</td>
+                </tr>  
+              </tbody>
+            </table>
+          </div>      
+        </rd-widget-body>
+        <rd-widget-footer>
+        </rd-widget-footer>
+      </rd-widget>
+    </div>
+  </div>
+</div>
