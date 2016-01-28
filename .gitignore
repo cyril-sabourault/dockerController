@@ -3,6 +3,7 @@ logs
 *.log
 
 # Gulp
+src/public/bower_components/
 src/public/dist/*
 
 # Runtime data

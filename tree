@@ -3,25 +3,34 @@ tree -aCI 'node_modules|.git|components|dist' --dirsfirst
 ├── logs
 │   ├── gulp
 │   │   ├── err.log
+│   │   ├── .gitignore
 │   │   └── out.log
 │   └── node
 │       ├── err.log
+│       ├── .gitignore
 │       └── out.log
 ├── src
 │   ├── app
 │   │   ├── controllers
 │   │   │   ├── containersCtrl.js
-│   │   │   └── imagesCtrl.js
-│   │   ├── partials
+│   │   │   ├── imagesCtrl.js
+│   │   │   └── infoCtrl.js
+│   │   ├── helpers
+│   │   │   ├── containerHelper.js
+│   │   │   ├── docker.js
+│   │   │   ├── imageHelper.js
+│   │   │   └── infoHelper.js
 │   │   └── routes
 │   │       ├── containers.js
 │   │       ├── images.js
 │   │       ├── index.js
+│   │       ├── info.js
 │   │       └── staticRoutes.js
 │   ├── public
 │   │   ├── src
 │   │   │   ├── img
-│   │   │   │   └── avatar.jpg
+│   │   │   │   ├── avatar.jpg
+│   │   │   │   └── favicon.ico
 │   │   │   ├── js
 │   │   │   │   ├── controllers
 │   │   │   │   │   ├── alert-ctrl.js
@@ -39,6 +48,7 @@ tree -aCI 'node_modules|.git|components|dist' --dirsfirst
 │   │   │   ├── templates
 │   │   │   │   ├── dashboard.html
 │   │   │   │   ├── details.html
+│   │   │   │   ├── images.html
 │   │   │   │   ├── list.html
 │   │   │   │   └── trash.html
 │   │   │   └── index.html
@@ -51,8 +61,9 @@ tree -aCI 'node_modules|.git|components|dist' --dirsfirst
 │   └── server.js
 ├── .gitignore
 ├── LICENSE
-├── npm-debug.log
 ├── package.json
 ├── README.md
 ├── supervisord.conf
 └── tree
+
+15 directories, 50 files
